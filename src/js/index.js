@@ -1,13 +1,12 @@
 const botoesCarrossel = document.querySelectorAll(".botao");
 const imgCarrossel = document.querySelectorAll(".img");
 let index = 0;
-let intervalo = setInterval(carrosselAutomatico, 3000);
-
+let intervalo = setInterval(carrosselAutomatico, 5000);
 
 function mudarImagem(novoindex) {
-    botoesCarrossel.forEach((botao)=>botao.classList.remove('selecionado'));
+    botoesCarrossel.forEach(botao=>botao.classList.remove('selecionado'));
     botoesCarrossel[index].classList.add('selecionado');
-    imgCarrossel.forEach((img)=>img.classList.remove('ativa'));
+    imgCarrossel.forEach(img=>img.classList.remove('ativa'));
     imgCarrossel[index].classList.add("ativa");   
 }
 
@@ -16,13 +15,13 @@ botoesCarrossel.forEach((botao, i) => {
         clearInterval(intervalo);
         index = i;
         mudarImagem(index);
-        intervalo = setInterval(carrosselAutomatico, 3000);
+        intervalo = setInterval(carrosselAutomatico, 5000);
     });
 });
 
 function carrosselAutomatico() {
     index++;
-    if (index >= imagens.length) {
+    if (index >= 6) {
         index = 0;
     }
     mudarImagem(index);
